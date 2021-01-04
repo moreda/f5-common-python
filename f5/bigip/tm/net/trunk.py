@@ -29,6 +29,7 @@ REST Kind
 
 from f5.bigip.mixins import ExclusiveAttributesMixin
 from f5.bigip.resource import Collection
+from f5.bigip.resource import Stats
 from f5.bigip.resource import Resource
 
 
@@ -36,7 +37,7 @@ class Trunks(Collection):
     """BIG-IP® network route collection"""
     def __init__(self, net):
         super(Trunks, self).__init__(net)
-        self._meta_data['allowed_lazy_attributes'] = [Trunk]
+        self._meta_data['allowed_lazy_attributes'] = [Trunk, Stats]
         self._meta_data['attribute_registry'] = {
             'tm:net:trunk:trunkstate': Trunk
         }
